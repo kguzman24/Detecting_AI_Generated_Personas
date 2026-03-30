@@ -109,7 +109,7 @@ Because the timeline and scope of this poject is relatively short, I focused on 
 | | label   str NOT NULL |
 | | profile_pic   str NOT NULL |
 
-### Data Tables
+### Data Tables \*change to links to csv files
 
 | Table | Description | File |
 |---|---|---|
