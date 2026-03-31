@@ -75,7 +75,7 @@ The data acquisition process for this project was not terribly difficult. First,
 
 | File | Description | Link |
 |---|---|---|
-| Design Project 1.ipynb | Loads face image dataset and account CSV data into Colab |[Detecting_AI_Generated_Personas](https://github.com/kguzman24/Detecting_AI_Generated_Personas)|
+| Pipeline.ipynb | Loads face image dataset and account CSV data into Colab |[Detecting AI Generated Personas Pipeline](https://github.com/kguzman24/Detecting_AI_Generated_Personas/blob/main/Pipeline.ipynb)|
 
 ### Bias Identification
 
