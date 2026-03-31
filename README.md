@@ -115,7 +115,7 @@ with AI-generated faces and real accounts with real human faces. Synthetic recor
 | account_profile.csv | Contains details about the account profile, includes `account_id`,`bio_length`, `has_profile_pic`,                      `is_private`, `username_digit_count`, and `username_length`. | [account_profile.csv](https://1drv.ms/x/c/fbb5975494ef3dae/IQAT93xX0CLnQa2unLUdyQlsAVZp3cJMPhRHUWHxt2fvmbU?e=ckr5Td) |
 | account_stats.csv | Contains details on an accounts metrics including `account_id`, `follower_count`,                            `following_count`, and `media_count`. | [accounts_stats.csv](https://1drv.ms/x/c/fbb5975494ef3dae/IQBBVnpSZhLRRq6ZKVXX8otDASSgOk5XOm4P0PYmzzXPfU8?e=r2RK64) |
 |accounts.csv | Contains details on whether the account is fake as well as the profile picture id: `account_id`,`label`,`isFake`,and `profile_pic_id` [accounts.csv](https://1drv.ms/x/c/fbb5975494ef3dae/IQBSQKV6lSDDTaim1uh_yZ6EAXT5mVUuj8jVqtyG5S_jV9w?e=kWyBuT) |
-|face_images.csv | Contains image details from the Human Faces Dataset on Kaggle: `image_id`,`filename`, and`face_type` | (face_images.csv)[https://1drv.ms/x/c/fbb5975494ef3dae/IQCZmR__SYAqTIsnhEN5buN6AdLG5yWIHaetnjRmiQbL4g0?e=K7l36c]
+|face_images.csv | Contains image details from the Human Faces Dataset on Kaggle: `image_id`,`filename`, and `face_type` | (face_images.csv)[https://1drv.ms/x/c/fbb5975494ef3dae/IQCZmR__SYAqTIsnhEN5buN6AdLG5yWIHaetnjRmiQbL4g0?e=K7l36c]
 
 ### Data Dictionary
 
