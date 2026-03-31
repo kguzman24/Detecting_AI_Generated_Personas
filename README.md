@@ -113,8 +113,10 @@ Because the timeline and scope of this poject is relatively short, I focused on 
 
 | Table | Description | File |
 |---|---|---|
-| df_accounts | 1,194 Instagram account records paired with face images, labeled real or fake | [fakeAccountData.json](https://1drv.ms/u/c/fbb5975494ef3dae/IQDLFoySjKr6RaEYwr0QYnkWAVhvq5cQMqvq27qXEnN7Vzo?e=QDkBEo), [realAccountData.json](https://1drv.ms/u/c/fbb5975494ef3dae/IQAKJCTtvHCkS6-hLGfzBK_9AfAlF75SUMpIGMVR7Xf3gss?e=pAGcrJ) |
-| face_images | 9,630 face images (5,000 real, 4,630 AI-generated) assigned to accounts | Kaggle: [human-faces-dataset](https://www.kaggle.com/datasets/kaustubhdhote/human-faces-dataset?resource=download) |
+| account_profile.csv | Contains details about the account profile, includes `account_id`,`bio_length`, `has_profile_pic`,                      `is_private`, `username_digit_count`, and `username_length`. | [account_profile.csv](https://1drv.ms/x/c/fbb5975494ef3dae/IQAT93xX0CLnQa2unLUdyQlsAVZp3cJMPhRHUWHxt2fvmbU?e=ckr5Td) |
+| account_stats.csv | Contains details on an accounts metrics including `account_id`, `follower_count`,                            `following_count`, and `media_count`. | [accounts_stats.csv](https://1drv.ms/x/c/fbb5975494ef3dae/IQBBVnpSZhLRRq6ZKVXX8otDASSgOk5XOm4P0PYmzzXPfU8?e=r2RK64) |
+|accounts.csv | Contains details on whether the account is fake as well as the profile picture id: `account_id`,`label`,`isFake`,and `profile_pic_id` [accounts.csv](https://1drv.ms/x/c/fbb5975494ef3dae/IQBSQKV6lSDDTaim1uh_yZ6EAXT5mVUuj8jVqtyG5S_jV9w?e=kWyBuT) |
+|face_images.csv | Contains image details from the Human Faces Dataset on Kaggle: `image_id`,`filename`, and`face_type` | (face_images.csv)[https://1drv.ms/x/c/fbb5975494ef3dae/IQCZmR__SYAqTIsnhEN5buN6AdLG5yWIHaetnjRmiQbL4g0?e=K7l36c]
 
 ### Data Dictionary
 
@@ -125,9 +127,9 @@ Because the timeline and scope of this poject is relatively short, I focused on 
 | userBiographyLength | int | Character length of bio | 22 | 0 uncertainty if we are able to see the bio from a profile in real time. The uncertainty of this metric may increase as time passes and changes could be made to a profile's bio.|
 | userMediaCount | int | Number of posts | 20 |  0 uncertainty if we are able to see user's public media count. The uncertainty of this metric may increase as time passes and posts are made or deleted.|
 | userHasProfilPic | int (binary) | Whether account has profile pic (1=yes) | 1 | 0 uncertainty if we are able to see the user profile in real time. The uncertainty of this metric may increases with time, as the user could remove or add a picture to their profile.|
-| userIsPrivate | int (binary) | Whether account is private (1=yes) | 0 |
-| usernameDigitCount | int | Number of digits in username | 0 |
-| usernameLength | int | Total length of username | 11 |
-| isFake | int (binary) | Original fake label from InstaFake (1=fake) | 1 |
+| userIsPrivate | int (binary) | Whether account is private (1=yes) | 0 | 0 uncertainty if we are able to see if the user has a public account or if a follow request has to be made. The uncertainty of this metric may increase as time passes and account privacy settings change.|
+| usernameDigitCount | int | Number of digits in username | 0 | 0 uncertainty if we are able to see the digits in a username through the profile. The uncertainty of this metric may increase as time passes and changes are made to the account.|
+| usernameLength | int | Total length of username | 11 | 0 uncertainty if we are able to see see the username of an account. The uncertainty of this metric may increase as time passes and changes are made to the account.|
+| isFake | int (binary) | Original fake label from InstaFake (1=fake) | 1 | A moderate amount of uncertainty when our model declares that an account is fake.|
 | label | string | Human-readable label | fake |
-| profile_pic | string | Filename of assigned face image | ai_001.jpg |
+| profile_pic | string | Filename of assigned face image | ai_001.jpg | A moderate amount of uncertainty when our model declares that an account is real.
