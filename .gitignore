@@ -1,0 +1,5 @@
+data/Human Faces Dataset/
+*.duckdb
+*.duckdb.wal
+models/mobilenet_facedetector.h5
+models/combined_predictions.parquet

@@ -1,12 +1,12 @@
 # DS 4320 Project 1: Detecting AI-Generated Personas
 
-**Summary:** The contents of this repository consists of a `data` folder that consists of the Instafake account data files `fakeAccountData.json` and `realAccountData.json`, as well as the `Human Faces` Dataset found on Kaggle. Additionally, the license and press release are displayed in the root repository, alongside the jupyter notebook that holds the code for the `Detecting AI Generated Personas` pipeline.
+**Executive Summary:** This repository contains the full pipeline for detecting AI-generated social media personas. The project combines two datasets: Instagram account metadata from the InstaFake dataset and face images from the Kaggle Human Faces Dataset. The `data` folder contains `fakeAccountData.json` and `realAccountData.json` from the InstaFake dataset. The data is normalized into 4 relational tables (accounts, account_stats, account_profile, face_images), stored in Parquet format within the `data` folder, and loaded into DuckDB for querying. A fine-tuned MobileNetV2 CNN classifies profile pictures as real or AI-generated, and a Random Forest classifier detects fake accounts from the metadata. Predictions from both models are combined into a final detection score. Additionally, the license and press release are displayed in the root repository, alongside the jupyter notebook that holds the code for the pipeline labeled `Pipeline.ipynb`.
 
-**Karen Guzman**
+**Name:** Karen Guzman
 
-**Sae3gg**
+**NetID:** Sae3gg
 
-**DOI:**
+**DOI:** [10.5281/zenodo.19363016](https://doi.org/10.5281/zenodo.19363016)
 
 [**Press Release**](PressRelease.md)
 
@@ -69,13 +69,16 @@ My project lives at the intersection of cybersecurity and digital identity; it r
 
 ### Data Acquisition
 
-The data acquisition process for this project was not terribly difficult. First, a Google search was done for datasets on AI generated pictures of human faces; the "Human Faces Dataset" was found and downloaded from Kaggle. The same was done for a dataset of curated account data; the instafake-dataset was found on a public GitHub repository and downloaded. Both were imported into the project VSCode jupyter notebook.
+The data acquisition process for this project was not terribly difficult. First, a Google search was done for datasets on AI generated pictures of human faces; the "Human Faces Dataset" was found and downloaded from Kaggle. The same was done for a dataset of curated account data; the Instafake-dataset was found on a public GitHub repository and downloaded. Both were imported into the project VSCode jupyter notebook.
 
 ### Code
 
 | File | Description | Link |
 |---|---|---|
-| Pipeline.ipynb | Loads face image dataset and account CSV data into Colab |[Detecting AI Generated Personas Pipeline](https://github.com/kguzman24/Detecting_AI_Generated_Personas/blob/main/Pipeline.ipynb)|
+| Pipeline.ipynb | Full data pipeline: loads InstaFake JSON and Kaggle face images, normalizes into 4 relational tables, exports to CSV/Parquet, loads into DuckDB, trains CNN and Random Forest models | [Pipeline.ipynb](https://github.com/kguzman24/Detecting_AI_Generated_Personas/blob/main/Pipeline.ipynb) |
+| fakeAccountData.json | Raw fake Instagram account metadata from InstaFake dataset | [fakeAccountData.json](https://github.com/kguzman24/Detecting_AI_Generated_Personas/blob/main/data/fakeAccountData.json) |
+| realAccountData.json | Raw real Instagram account metadata from InstaFake dataset | [realAccountData.json](https://github.com/kguzman24/Detecting_AI_Generated_Personas/blob/main/data/realAccountData.json) |
+| Human Faces Dataset | 9,630 face images (real + AI-generated) from Kaggle | [Kaggle](https://www.kaggle.com/datasets/kaustubhdhote/human-faces-dataset) |
 
 ### Bias Identification
 
@@ -93,20 +96,15 @@ with AI-generated faces and real accounts with real human faces. Synthetic recor
 ### Schema
 
 
-| | df_accounts |
-|---|---|
-| **PK** | *index (auto)* |
-| | userFollowerCount   int NOT NULL |
-| | userFollowingCount   int NOT NULL |
-| | userBiographyLength   int NOT NULL |
-| | userMediaCount   int NOT NULL |
-| | userHasProfilPic   int NOT NULL |
-| | userIsPrivate   int NOT NULL |
-| | usernameDigitCount   int NOT NULL |
-| | usernameLength   int NOT NULL |
-| | isFake   int NOT NULL |
-| | label   str NOT NULL |
-| | profile_pic   str NOT NULL |
+
+| accounts | | account_stats | | account_profile | | face_images |
+|---|---|---|---|---|---|---|
+| **PK** account_id | | **FK** account_id | | **FK** account_id | | **PK** image_id |
+| label str | | follower_count int | | bio_length int | | filename str |
+| isFake int | | following_count int | | has_profile_pic int | | face_type str |
+| is_synthetic bool | | media_count int | | is_private int | | |
+| **FK** profile_pic_id | | | | username_digit_count int | | |
+| | | | | username_length int | | |
 
 ### Data Tables 
 

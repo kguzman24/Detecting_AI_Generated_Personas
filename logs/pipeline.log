@@ -3222,3 +3222,167 @@ weighted avg       1.00      1.00      1.00      1926
 2026-03-31 12:03:34,838 - INFO - Confusion matrix:
 [[1611    2]
  [   0  313]]
+2026-03-31 21:09:51,452 - INFO - Pipeline initialized.
+2026-03-31 21:09:51,680 - INFO - Loaded fakeAccountData.json: 200 fake accounts.
+2026-03-31 21:09:51,900 - INFO - Loaded realAccountData.json: 994 real accounts.
+2026-03-31 21:09:52,450 - INFO - Combined dataset: 1194 total accounts.
+2026-03-31 21:09:52,453 - INFO - Columns in dataset: ['userFollowerCount', 'userFollowingCount', 'userBiographyLength', 'userMediaCount', 'userHasProfilPic', 'userIsPrivate', 'usernameDigitCount', 'usernameLength', 'isFake', 'label', 'account_id']
+2026-03-31 21:09:52,830 - INFO - Found 5000 real images and 4630 fake images.
+2026-03-31 21:09:52,871 - INFO - Constructed face_images DataFrame with 9630 records.
+2026-03-31 21:09:53,054 - INFO - Assigned profile picture id to accounts.
+2026-03-31 21:09:53,099 - INFO - Sample of assigned profile_pic_id:
+   account_id label  profile_pic_id
+0           1  fake            5913
+1           2  fake            5205
+2           3  fake            7254
+3           4  fake            7007
+4           5  fake            6829
+2026-03-31 21:09:53,173 - INFO - Generating 8436 synthetic accounts to match total images.
+2026-03-31 21:10:14,200 - INFO - Synthetic data generated: (8436, 12)
+2026-03-31 21:10:14,213 - INFO - Synthetic label split:
+label
+real    4278
+fake    4158
+2026-03-31 21:10:14,300 - INFO - Combined real and synthetic data: (9630, 13)
+2026-03-31 21:10:14,304 - INFO - Final label distribution:
+label
+real    5272
+fake    4358
+2026-03-31 21:10:14,375 - INFO - Assigned profile pictures to all accounts.
+2026-03-31 21:10:14,390 - INFO - Sample of final dataset:
+   account_id label  is_synthetic  profile_pic_id
+0           1  fake         False            7409
+1           2  fake         False            5840
+2           3  fake         False            8423
+3           4  fake         False            5191
+4           5  fake         False            6494
+2026-03-31 21:10:14,565 - INFO - Table 'accounts': 9630 rows x 4 cols
+2026-03-31 21:10:14,567 - INFO - Table 'account_stats': 9630 rows x 4 cols
+2026-03-31 21:10:14,568 - INFO - Table 'account_profile': 9630 rows x 6 cols
+2026-03-31 21:10:14,569 - INFO - Table 'face_images': 9630 rows x 3 cols
+2026-03-31 21:10:15,026 - INFO - CSVs written to 'data/csv/' with total size 643.3 KB
+2026-03-31 21:10:15,871 - INFO - Parquets written to 'data/parquet/' with total size 400.7 KB
+2026-03-31 21:10:16,416 - INFO - Connected to DuckDB.
+2026-03-31 21:10:17,023 - ERROR - DuckDB error: Catalog Error: Table with name "accounts" already exists!
+2026-03-31 21:11:35,089 - INFO - Connected to DuckDB.
+2026-03-31 21:11:37,080 - INFO - Loaded table 'accounts' from data/parquet/accounts.parquet with 9630 rows
+2026-03-31 21:11:37,875 - INFO - Loaded table 'account_stats' from data/parquet/account_stats.parquet with 9630 rows
+2026-03-31 21:11:38,613 - INFO - Loaded table 'account_profile' from data/parquet/account_profile.parquet with 9630 rows
+2026-03-31 21:11:38,992 - INFO - Loaded table 'face_images' from data/parquet/face_images.parquet with 9630 rows
+2026-03-31 21:11:46,932 - INFO - Joined tables into model-ready DataFrame with 9630 rows and 14 columns.
+2026-03-31 21:23:33,955 - INFO - Pipeline initialized.
+2026-03-31 21:23:34,001 - INFO - Loaded fakeAccountData.json: 200 fake accounts.
+2026-03-31 21:23:34,032 - INFO - Loaded realAccountData.json: 994 real accounts.
+2026-03-31 21:23:34,103 - INFO - Combined dataset: 1194 total accounts.
+2026-03-31 21:23:34,105 - INFO - Columns in dataset: ['userFollowerCount', 'userFollowingCount', 'userBiographyLength', 'userMediaCount', 'userHasProfilPic', 'userIsPrivate', 'usernameDigitCount', 'usernameLength', 'isFake', 'label', 'account_id']
+2026-03-31 21:23:34,299 - INFO - Found 5000 real images and 4630 fake images.
+2026-03-31 21:23:34,313 - INFO - Constructed face_images DataFrame with 9630 records.
+2026-03-31 21:23:34,418 - INFO - Assigned profile picture id to accounts.
+2026-03-31 21:23:34,446 - INFO - Sample of assigned profile_pic_id:
+   account_id label  profile_pic_id
+0           1  fake            5913
+1           2  fake            5205
+2           3  fake            7254
+3           4  fake            7007
+4           5  fake            6829
+2026-03-31 21:23:34,488 - INFO - Generating 8436 synthetic accounts to match total images.
+2026-03-31 21:23:34,604 - INFO - Synthetic data generated: (8436, 12)
+2026-03-31 21:23:34,616 - INFO - Synthetic label split:
+label
+real    4278
+fake    4158
+2026-03-31 21:23:34,660 - INFO - Combined real and synthetic data: (9630, 13)
+2026-03-31 21:23:34,669 - INFO - Final label distribution:
+label
+real    5272
+fake    4358
+2026-03-31 21:23:34,696 - INFO - Assigned profile pictures to all accounts.
+2026-03-31 21:23:34,709 - INFO - Sample of final dataset:
+   account_id label  is_synthetic  profile_pic_id
+0           1  fake         False            7409
+1           2  fake         False            5840
+2           3  fake         False            8423
+3           4  fake         False            5191
+4           5  fake         False            6494
+2026-03-31 21:23:34,772 - INFO - Table 'accounts': 9630 rows x 4 cols
+2026-03-31 21:23:34,774 - INFO - Table 'account_stats': 9630 rows x 4 cols
+2026-03-31 21:23:34,776 - INFO - Table 'account_profile': 9630 rows x 6 cols
+2026-03-31 21:23:34,779 - INFO - Table 'face_images': 9630 rows x 3 cols
+2026-03-31 21:23:35,099 - INFO - CSVs written to 'data/csv/' with total size 643.3 KB
+2026-03-31 21:23:36,095 - INFO - Parquets written to 'data/parquet/' with total size 400.7 KB
+2026-03-31 21:23:38,717 - INFO - Connected to DuckDB.
+2026-03-31 21:23:39,149 - INFO - Loaded table 'accounts' from data/parquet/accounts.parquet with 9630 rows
+2026-03-31 21:23:39,243 - INFO - Loaded table 'account_stats' from data/parquet/account_stats.parquet with 9630 rows
+2026-03-31 21:23:39,338 - INFO - Loaded table 'account_profile' from data/parquet/account_profile.parquet with 9630 rows
+2026-03-31 21:23:39,419 - INFO - Loaded table 'face_images' from data/parquet/face_images.parquet with 9630 rows
+2026-03-31 21:23:39,733 - INFO - Joined tables into model-ready DataFrame with 9630 rows and 14 columns.
+2026-03-31 21:24:29,545 - INFO - TensorFlow version: 2.21.0
+2026-03-31 21:24:56,487 - INFO - All 9630 image files verified on disk
+2026-03-31 21:24:56,538 - INFO - Image dataset: profile_pic_type
+real    5272
+ai      4358
+2026-03-31 21:24:57,113 - INFO - Train set: 7704 images
+2026-03-31 21:24:57,115 - INFO - Val set:   1926 images
+2026-03-31 21:25:21,588 - INFO - Train batches: 241, Val batches: 61
+2026-03-31 21:25:27,379 - INFO - MobileNetV2 model built
+2026-03-31 21:25:27,418 - INFO - Trainable params: 164,097
+2026-03-31 21:25:27,461 - ERROR - Error training CNN: name 'load_model' is not defined
+2026-03-31 21:26:25,265 - INFO - TensorFlow version: 2.21.0
+2026-03-31 21:26:34,476 - WARNING - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+2026-03-31 21:26:34,516 - INFO - Loaded existing model from models/mobilenet_facedetector.h5
+2026-03-31 21:28:36,420 - INFO - CNN Classification Report:
+2026-03-31 21:28:36,489 - INFO - 
+              precision    recall  f1-score   support
+
+        real       1.00      1.00      1.00      1054
+          ai       1.00      1.00      1.00       872
+
+    accuracy                           1.00      1926
+   macro avg       1.00      1.00      1.00      1926
+weighted avg       1.00      1.00      1.00      1926
+
+2026-03-31 21:28:36,508 - INFO - Confusion matrix:
+[[1054    0]
+ [   1  871]]
+2026-03-31 21:28:50,328 - INFO - CNN classification report saved to models/cnn_classification_report.txt
+2026-03-31 21:30:09,542 - INFO - Loaded existing CNN classification report from models/cnn_classification_report.txt
+2026-03-31 21:30:52,413 - INFO - Loaded existing CNN classification report from models/cnn_classification_report.txt
+2026-03-31 21:32:06,925 - INFO - Random Forest Classification Report:
+2026-03-31 21:32:07,083 - INFO - 
+              precision    recall  f1-score   support
+
+        real       0.60      0.69      0.64      1054
+        fake       0.54      0.43      0.48       872
+
+    accuracy                           0.58      1926
+   macro avg       0.57      0.56      0.56      1926
+weighted avg       0.57      0.58      0.57      1926
+
+2026-03-31 21:32:07,187 - INFO - Confusion matrix:
+[[730 324]
+ [493 379]]
+2026-03-31 21:32:09,145 - INFO - Random Forest saved to models/random_forest_accounts.joblib
+2026-03-31 21:32:09,165 - INFO - RF classification report saved to models/rf_classification_report.txt
+2026-03-31 21:32:31,040 - INFO - Feature importance plot saved
+2026-03-31 21:40:47,682 - INFO - Combined model predictions generated
+2026-03-31 21:40:47,834 - INFO - Combined prediction distribution:
+combined_pred
+0    5269
+1    4361
+2026-03-31 21:41:10,889 - INFO - Predictions saved to models/combined_predictions.parquet
+2026-03-31 21:41:10,924 - INFO - Combined prediction distribution:
+combined_pred
+0    5269
+1    4361
+2026-03-31 21:45:23,185 - INFO - Loaded saved predictions from disk — skipping inference
+2026-03-31 21:45:46,699 - INFO - Combined model report:
+              precision    recall  f1-score   support
+
+        real       1.00      1.00      1.00      5272
+        fake       1.00      1.00      1.00      4358
+
+    accuracy                           1.00      9630
+   macro avg       1.00      1.00      1.00      9630
+weighted avg       1.00      1.00      1.00      9630
+
+2026-03-31 21:45:48,453 - INFO - Combined model evaluation complete
