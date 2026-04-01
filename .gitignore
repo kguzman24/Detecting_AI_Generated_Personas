@@ -3,3 +3,4 @@ data/Human Faces Dataset/
 *.duckdb.wal
 models/mobilenet_facedetector.h5
 models/combined_predictions.parquet
+logs/
